@@ -5,21 +5,59 @@ public class CarRentalSystem
 {
     public static void main(String[] args)
     {
-        Vehicle Car = new Vehicle();
-        Car.SetManufacturer("Toyota");
-        Car.SetModel("AE86");
-        Car.SetMakeYear(2015);
-        Car.PrintVehicle();
+        //Create two vehciles and set there Manufcaturer, Model and Year
+        Vehicle Trueno = new Vehicle();
+        Trueno.SetManufacturer("Toyota");
+        Trueno.SetModel("AE86");
+        Trueno.SetMakeYear(1986);
         
-        Journey RoadTrip = new Journey (250);
-        Car.Journey(RoadTrip);
-        Car.UpdateServices();
-        Car.PrintVehicle();
+        Vehicle Fairlady = new Vehicle();
+        Fairlady.SetManufacturer("Nissan");
+        Fairlady.SetModel("S30Z");
+        Fairlady.SetMakeYear(1969);
         
-        FuelPurchase Fuel = new FuelPurchase (23.00, 27.89);
-        Car.FuelPurchase(Fuel);
-        Car.UpdateAll();
-        Car.PrintVehicle();
+        //Print both to show there initial information
+        Trueno.PrintVehicle();
+        Fairlady.PrintVehicle();
+        
+        //Give the Trueno some journeys
+        Trueno.Journey(new Journey(48));
+        Trueno.Journey(new Journey(68));
+        
+        //Give the trueno some fuel purchases
+        Trueno.FuelPurchase(new FuelPurchase(17.54, 20.00));
+        Trueno.FuelPurchase(new FuelPurchase(11.40, 16.45));
+        
+        //Service the trueno
+        Trueno.Service(new Service("05/11/1996"));
+        
+        //Give the trueno another journey and show its new info
+        Trueno.Journey(new Journey(23));
+        Trueno.PrintVehicle();
+        
+        //Give the fairlady a journey and fuel purchase
+        Fairlady.Journey(new Journey(78));
+        Fairlady.FuelPurchase(new FuelPurchase(34.67, 37.95));
+        
+        //Rent the fairlady per km
+        Fairlady.KmRental(new PerKmRental(47));
+        
+        //Show the fairladys info
+        Fairlady.PrintVehicle();
+        
+        //Attempt to rent fairlady when needing service
+        Fairlady.DayRental(new PerDayRental(1, 37));
+        
+        //Show the fairladys info hasnt changed
+        Fairlady.PrintVehicle();
+        
+        //Service the fairlady then attempt the rental again
+        Fairlady.Service(new Service("24/02/1997"));
+        Fairlady.DayRental(new PerDayRental(1, 37));
+        
+        //Show the fairladys new info
+        Fairlady.PrintVehicle();
+        
     }
     
 }

@@ -11,32 +11,32 @@ package carrentalsystem;
  */
 public class FuelPurchase
 {
+    //Declare values
     private double FuelPurchased;
     private double FuelCost;
     
+    //Constructor
     FuelPurchase(double Purchased, double Cost)
     {
         FuelPurchased = Purchased;
         FuelCost = Cost;
     }
     
-    void SetFuelPurchased (double Purchased)
-    {
-        FuelPurchased = Purchased;
-    }
-    
+    //Getter for FuelPurchased
     double GetFuelPurchased ()
     {
         return FuelPurchased;
     }
     
-    void SetFuelCost(double Cost)
-    {
-        FuelCost = Cost;
-    }
-    
+    //Getter for FuelCost
     double GetFuelCost ()
     {
         return FuelCost;
+    }
+    
+    //Print method
+    void PrintFuelPurchase()
+    {
+        System.out.print(FuelPurchased + " Litres for $"+FuelCost+", ");
     }
 }
